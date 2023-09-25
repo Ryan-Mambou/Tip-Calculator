@@ -11,9 +11,22 @@
     <h1 class="text-regal-blue leading-10">SPLI</h1>
     <h1 class="text-regal-blue leading-10">ITER</h1>
     </div>
-    <div class="flex flex-col sm:flex-row bg-white w-9/12 min-h-[25rem] mt-16 rounded-2xl">
-        <div></div>
-        <div></div>
+    <div class="flex flex-col sm:flex-row bg-white w-9/12 min-h-[25rem] p-[1.8rem] mt-16 rounded-2xl">
+        <div class="flex flex-col justify-between w-1/2">
+            <div class="">
+                <label for="bill" class="text-gray-600 font-semibold">Bill</label><br />
+                <input class="bg-light-blue mt-1 p-1 w-11/12 outline-regal-blue" id="bill" type="number" name="bill"/>
+            </div>
+            <div>
+                <label for="tip" class="text-gray-600 font-semibold">Select Tip %</label><br />
+                <input class="bg-light-blue mt-1" id="tip" type="number" name="tip"/>
+            </div>
+            <div>
+                <label for="number" class="text-gray-600 font-semibold">Number of people</label><br />
+                <input class="bg-light-blue mt-1 p-1 w-11/12 outline-regal-blue" id="number" type="number" name="number"/>
+            </div>
+        </div>
+        <div class="bg-regal-blue w-1/2 rounded-2xl">t</div>
     </div>
 </body>
 </html>
