@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Tip Calculator</title>
 </head>
 <body class="bg-[#C5E4E7] flex flex-col items-center justify-center">
@@ -15,15 +16,43 @@
         <div class="flex flex-col justify-between w-1/2">
             <div class="">
                 <label for="bill" class="text-gray-600 font-semibold">Bill</label><br />
-                <input class="bg-light-blue mt-1 p-1 w-11/12 outline-regal-blue" id="bill" type="number" name="bill"/>
+                <input class="bg-light-blue relative text-right mt-1 p-1 w-11/12 outline-regal-blue" id="bill" type="number" name="bill">
+                <i class="fa-solid fa-dollar-sign absolute right-2"></i>
+            </input>
             </div>
             <div>
                 <label for="tip" class="text-gray-600 font-semibold">Select Tip %</label><br />
-                <input class="bg-light-blue mt-1" id="tip" type="number" name="tip"/>
+                <div class="grid grid-cols-3 grid-rows-2 gap-4 w-11/12">
+                    <label for="five" class="text-white text-center flex justify-center items-center cursor-pointer font-bold text-xl bg-regal-blue p-2 rounded-lg">
+                        <input name="five" class="absolute opacity-0" value="5" id="5" type="radio">
+                        5%
+                    </label>
+                    <label for="ten" class="btn text-white p-2 flex justify-center items-center rounded-lg font-bold text-2xl text-center bg-regal-blue cursor-pointer">
+                        <input name="ten" value="10" id="10" class="opacity-0 absolute" type="radio">
+                       10%
+                    </label>
+                    <label for="fifteen" class="text-white text-center cursor-pointer font-bold text-xl bg-regal-blue p-2 rounded-lg">
+                        <input name="fifteen" value="15" class="opacity-0 absolute" id="fifteen" type="radio">
+                        15%
+                    </label>
+                    <label for="twenty" class="text-white flex justify-center items-center text-center cursor-pointer font-bold text-xl bg-regal-blue p-2 rounded-lg">
+                        <input name="twenty" value="20" class="opacity-0 absolute" id="twenty" type="radio">
+                        20%
+                    </label>
+                    <label for="fifty" class="text-white text-center flex justify-center items-center cursor-pointer font-bold text-xl bg-regal-blue p-2 rounded-lg">
+                        <input name="fifty" value="50" class="opacity-0 absolute" id="fifty" type="radio">
+                        25%
+                    </label>
+                    <label for="custom">
+                        <input name="custom" class="text-center text-gray-600 rounded-lg font-bold text-xl w-full h-full bg-light-blue" placeholder="custom" min="0" value="custom" id="custom" type="text">
+                    </label>
+                </div>
+            </input>
             </div>
             <div>
                 <label for="number" class="text-gray-600 font-semibold">Number of people</label><br />
-                <input class="bg-light-blue mt-1 p-1 w-11/12 outline-regal-blue" id="number" type="number" name="number"/>
+                <input class="bg-light-blue mt-1 p-1 text-right w-11/12 outline-regal-blue" id="number" type="number" name="number"/>
+                <i class="fa-solid fa-user absolute"></i>
             </div>
         </div>
         <div class="bg-regal-blue w-1/2 rounded-2xl">t</div>
