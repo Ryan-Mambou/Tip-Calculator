@@ -9,7 +9,8 @@ module.exports = {
       colors: {
         'regal-blue': '#00494d',
         'back-blue': '#C5E4E7',
-        'light-blue': '#F4FAFA'
+        'light-blue': '#F4FAFA',
+        'select-blue': '#26C0AB',
       },
     },
   },
