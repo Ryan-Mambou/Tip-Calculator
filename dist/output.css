@@ -566,6 +566,14 @@ input[type="number"]::-webkit-inner-spin-button,
   margin-top: 4rem;
 }
 
+.mt-2{
+  margin-top: 0.5rem;
+}
+
+.mt-4{
+  margin-top: 1rem;
+}
+
 .flex{
   display: flex;
 }
@@ -820,6 +828,28 @@ input[type="number"]::-webkit-inner-spin-button,
 @media (min-width: 640px){
   .sm\:flex-row{
     flex-direction: row;
+  }
+}
+
+@media (min-width: 768px){
+  .md\:mt-0{
+    margin-top: 0px;
+  }
+
+  .md\:w-1\/2{
+    width: 50%;
+  }
+
+  .md\:w-11\/12{
+    width: 91.666667%;
+  }
+
+  .md\:flex-row{
+    flex-direction: row;
+  }
+
+  .md\:gap-4{
+    gap: 1rem;
   }
 }
   
