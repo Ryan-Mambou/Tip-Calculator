@@ -1,7 +1,7 @@
 let bill = <HTMLInputElement>document.querySelector('#bill')
 let number_of_people = <HTMLInputElement>document.querySelector('#number_of_people') 
 
-let tips = document.querySelectorAll('input[type="radio"]')
+let tips = Array.from(document.querySelectorAll('input[type="radio"]'))
 let custom = document.querySelector('#custom')
 
 let total = document.querySelector('#total')
@@ -12,7 +12,15 @@ let alert_bill = document.querySelector('#alert_bill')
 let alert_tip = document.querySelector('#alert_tip')
 let alert_people_number = document.querySelector('#alert_people_number')
 
+tips.map(tip => {
+    setColor(tip)
+})
 
-console.log(bill, " call")
 console.log(tips)
+
+function setColor(item){
+    let parent = item.parentElement
+    parent.classList.add('bg-select-blue')
+    parent.classList.add('text-regal-blue')
+}
 
