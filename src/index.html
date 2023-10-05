@@ -15,13 +15,19 @@
     <div class="flex flex-col md:flex-row bg-white w-9/12 min-h-[25rem] p-[1.8rem] mt-16 rounded-2xl">
         <div class="flex flex-col justify-between w-full md:w-1/2">
             <div class="mt-4 md:mt-0 relative">
-                <label for="bill" class="text-gray-600 font-semibold">Bill</label><br />
+                <div class="flex flex-row justify-between w-full md:w-11/12">
+                    <label for="bill" class="text-gray-600 font-semibold">Bill</label>
+                    <span class="hidden text-sm text-red-400" id="alerttip">Can't be zero</span>
+                </div>
                 <input class="bg-light-blue mt-1 p-1 w-full md:w-11/12 outline-regal-blue" id="bill" type="number" name="bill">
                 <i class="fa-solid fa-dollar-sign absolute text-xl left-4 bottom-1.5 text-gray-400"></i>
             </input>
             </div>
             <div class="mt-4 md:mt-0">
-                <label for="tip" class="text-gray-600 font-semibold">Select Tip %</label><br />
+                <div class="flex flex-row justify-between w-full md:w-11/12">
+                    <label for="tip" class="text-gray-600 font-semibold">Select Tip %</label>
+                    <span class="hidden text-sm text-red-400" id="alerttip">Choose a tip %</span>
+                </div>
                 <div class="grid grid-cols-3 grid-rows-2 gap-4 w-full md:w-11/12">
                     <label for="five" class="text-white text-center flex justify-center items-center cursor-pointer font-bold text-xl bg-regal-blue p-2 rounded-lg">
                         <input name="five" class="absolute opacity-0" value="5" id="5" type="radio">
@@ -50,7 +56,10 @@
             </input>
             </div>
             <div class="mt-4 md:mt-0 relative">
-                <label for="number" class="text-gray-600 font-semibold">Number of people</label><br />
+                <div class="flex flex-row justify-between w-full md:w-11/12">
+                    <label for="number" class="text-gray-600 font-semibold">Number of people</label>
+                    <span class="hidden text-sm text-red-400 text-right" id="alert">Can't be zero</span>
+                </div>
                 <input class="bg-light-blue mt-1 p-1 text-right w-full md:w-11/12 outline-regal-blue" id="number" type="number" name="number"/>
                 <i class="fa-solid fa-user absolute text-xl left-4 bottom-1.5 text-gray-400"></i>
             </div>
