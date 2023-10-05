@@ -13,14 +13,17 @@ let alert_tip = document.querySelector('#alert_tip')
 let alert_people_number = document.querySelector('#alert_people_number')
 
 tips.map(tip => {
-    setColor(tip)
+    console.log(typeof tip)
+    setColor(<HTMLInputElement>tip)
 })
 
 console.log(tips)
 
-function setColor(item){
+function setColor(item : HTMLInputElement){
     let parent = item.parentElement
-    parent.classList.add('bg-select-blue')
+    parent.classList.remove('text-white')
+    parent.classList.remove('bg-regal-blue')
     parent.classList.add('text-regal-blue')
+    parent.classList.add('bg-select-blue')
 }
 
