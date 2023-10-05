@@ -17,24 +17,24 @@
             <div class="mt-4 md:mt-0 relative">
                 <div class="flex flex-row justify-between w-full md:w-11/12">
                     <label for="bill" class="text-gray-600 font-semibold">Bill</label>
-                    <span class="hidden text-sm text-red-400" id="alerttip">Can't be zero</span>
+                    <span class="hidden text-sm text-red-400" id="alert_bill">Can't be zero</span>
                 </div>
-                <input class="bg-light-blue mt-1 p-1 w-full md:w-11/12 outline-regal-blue" id="bill" type="number" name="bill">
+                <input min="0" class="bg-light-blue font-semibold mt-1 p-1 w-full md:w-11/12 outline-regal-blue text-right text-gray-400 text-xl" value="0" id="bill" type="number" name="bill">
                 <i class="fa-solid fa-dollar-sign absolute text-xl left-4 bottom-1.5 text-gray-400"></i>
             </input>
             </div>
             <div class="mt-4 md:mt-0">
                 <div class="flex flex-row justify-between w-full md:w-11/12">
                     <label for="tip" class="text-gray-600 font-semibold">Select Tip %</label>
-                    <span class="hidden text-sm text-red-400" id="alerttip">Choose a tip %</span>
+                    <span class="hidden text-sm text-red-400" id="alert_tip">Choose a tip %</span>
                 </div>
                 <div class="grid grid-cols-3 grid-rows-2 gap-4 w-full md:w-11/12">
                     <label for="five" class="text-white text-center flex justify-center items-center cursor-pointer font-bold text-xl bg-regal-blue p-2 rounded-lg">
-                        <input name="five" class="absolute opacity-0" value="5" id="5" type="radio">
+                        <input name="five" class="absolute opacity-0" value="5" id="five" type="radio">
                         5%
                     </label>
                     <label for="ten" class="btn text-white p-2 flex justify-center items-center rounded-lg font-bold text-2xl text-center bg-regal-blue cursor-pointer">
-                        <input name="ten" value="10" id="10" class="opacity-0 absolute" type="radio">
+                        <input name="ten" value="10" id="ten" class="opacity-0 absolute" type="radio">
                        10%
                     </label>
                     <label for="fifteen" class="text-white text-center cursor-pointer font-bold text-xl bg-regal-blue p-2 rounded-lg">
@@ -58,9 +58,9 @@
             <div class="mt-4 md:mt-0 relative">
                 <div class="flex flex-row justify-between w-full md:w-11/12">
                     <label for="number" class="text-gray-600 font-semibold">Number of people</label>
-                    <span class="hidden text-sm text-red-400 text-right" id="alert">Can't be zero</span>
+                    <span class="hidden text-sm text-red-400 text-right" id="alert_people_number">Can't be zero</span>
                 </div>
-                <input class="bg-light-blue mt-1 p-1 text-right w-full md:w-11/12 outline-regal-blue" id="number" type="number" name="number"/>
+                <input min="0" class="bg-light-blue font-semibold mt-1 p-1 text-right w-full md:w-11/12 outline-regal-blue  text-gray-400 text-xl" value="0" id="number_of_people" type="number" name="number"/>
                 <i class="fa-solid fa-user absolute text-xl left-4 bottom-1.5 text-gray-400"></i>
             </div>
         </div>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="flex flex-row gap-2 text-2xl text-select-blue font-bold">
                         <span><i class="fa-solid fa-dollar-sign"></i></span>
-                        <span class="">0.00</span>
+                        <span class="" id="tip_amount">0.00</span>
                     </div>
                 </div>
                 <div class="flex flex-row justify-between px-4 py-4">
@@ -83,13 +83,13 @@
                     </div>
                     <div class="flex flex-row gap-2 text-2xl text-select-blue font-bold">
                         <span><i class="fa-solid fa-dollar-sign"></i></span>
-                        <span>0.00</span>
+                        <span id="total">0.00</span>
                     </div>
                 </div>
             </div>
             <div class="p-4">
                 <button class="w-full text-regal-blue rounded-lg text-xl font-bold
-                 bg-select-blue border-light-blue py-2">
+                 bg-select-blue border-light-blue py-2" id="reset">
                     Reset
                 </button>
             </div>
