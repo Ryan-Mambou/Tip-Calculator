@@ -20,6 +20,11 @@ tips.forEach(tip => {
     });
     //setColor(<HTMLInputElement>tip)
 });
+custom.addEventListener('click', () => {
+    tips.forEach(tip => {
+        removeColor(tip);
+    });
+});
 function check(inputs, input_id) {
     console.log('click');
     inputs.forEach(item => {

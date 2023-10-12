@@ -25,6 +25,12 @@ tips.forEach(tip => {
     //setColor(<HTMLInputElement>tip)
 })
 
+custom.addEventListener('click', () => {
+    tips.forEach(tip => {
+        removeColor(tip)
+    })
+})
+
 function check(inputs: Array<HTMLInputElement>, input_id : string){
     console.log('click')
     inputs.forEach(item => {
