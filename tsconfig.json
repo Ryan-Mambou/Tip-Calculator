@@ -5,4 +5,4 @@
         "outDir": "ts-built",
         "rootDir": "src"
     }
-  }
+}

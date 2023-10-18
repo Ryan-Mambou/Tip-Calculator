@@ -2,7 +2,7 @@ let bill = <HTMLInputElement>document.querySelector('#bill')
 let number_of_people = <HTMLInputElement>document.querySelector('#number_of_people') 
 
 let tips : Array<HTMLInputElement> = Array.from(document.querySelectorAll('input[type="radio"]'))
-let custom = document.querySelector('#custom')
+let custom = document.querySelector('#custom') as HTMLInputElement
 
 let total = document.querySelector('#total')
 let tip_amount = document.querySelector('#tip_amount')
@@ -16,23 +16,41 @@ tips.forEach(tip => {
     tip.addEventListener('click', () => {
         tips.forEach(tip => {
             removeColor(tip)
+            custom.value = ''
         })
         setColor(tip)
-        // let tip_id = tip.id
-        // console.log(tip_id)
-        // check(tips, tip_id)
+        console.log(tip.value)
+        setTip(tip.value)
     })
-    //setColor(<HTMLInputElement>tip)
 })
+
+console.log("tip:" + localStorage.getItem("tip"))
 
 custom.addEventListener('click', () => {
     tips.forEach(tip => {
+        setTip(tip.value)
         removeColor(tip)
     })
 })
 
+function setTip(value : string){
+    localStorage.setItem('tip', value)
+}
+
+function getTip(){
+    return localStorage.getItem('tip')
+}
+
+function tip_per_person(bill_to_pay : number, number_of_people : number, tip_to_pay : number){
+    let total_tip : number = ((tip_to_pay/100) * bill_to_pay).toFixed(2)
+    return (total_tip / number_of_people).toFixed(2)
+}
+
+function total_per_person(bill : number, number_of_people : number, tip : number){
+
+}
+
 function check(inputs: Array<HTMLInputElement>, input_id : string){
-    console.log('click')
     inputs.forEach(item => {
         if (item.id = input_id){
             setColor(item)

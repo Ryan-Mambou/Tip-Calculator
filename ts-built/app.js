@@ -12,21 +12,33 @@ tips.forEach(tip => {
     tip.addEventListener('click', () => {
         tips.forEach(tip => {
             removeColor(tip);
+            custom.value = '';
         });
         setColor(tip);
-        // let tip_id = tip.id
-        // console.log(tip_id)
-        // check(tips, tip_id)
+        console.log(tip.value);
+        setTip(tip.value);
     });
-    //setColor(<HTMLInputElement>tip)
 });
+console.log("tip:" + localStorage.getItem("tip"));
 custom.addEventListener('click', () => {
     tips.forEach(tip => {
+        setTip(tip.value);
         removeColor(tip);
     });
 });
+function setTip(value) {
+    localStorage.setItem('tip', value);
+}
+function getTip() {
+    return localStorage.getItem('tip');
+}
+function tip_per_person(bill_to_pay, number_of_people, tip_to_pay) {
+    let total_tip = ((tip_to_pay / 100) * bill_to_pay).toFixed(2);
+    return (total_tip / number_of_people).toFixed(2);
+}
+function total_per_person(bill, number_of_people, tip) {
+}
 function check(inputs, input_id) {
-    console.log('click');
     inputs.forEach(item => {
         if (item.id = input_id) {
             setColor(item);
