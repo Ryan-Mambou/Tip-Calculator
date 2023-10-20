@@ -22,17 +22,9 @@ function tip_per_person(bill_to_pay, number_of_people, tip_to_pay) {
 function total_per_person(bill, number_of_people, tip) {
     let tip_to_pay = tip_per_person(bill, number_of_people, tip);
     let total_to_pay = (bill / number_of_people).toFixed(2);
-    console.log(tip_to_pay + typeof total_to_pay);
-    return parseFloat(total_to_pay) + parseFloat(tip_to_pay);
+    console.log(tip_to_pay + total_to_pay);
+    return (parseFloat(total_to_pay) + parseFloat(tip_to_pay)).toFixed(2);
 }
-form.addEventListener('keypress', (e) => {
-    if (e.key == "Enter") {
-        let tip = getTip();
-        total.textContent = String(total_per_person(parseInt(bill.value), parseInt(number_of_people.value), parseInt(tip)));
-        tip_amount.textContent = tip_per_person(parseInt(bill.value), parseInt(number_of_people.value), parseInt(tip));
-        console.log("The key is down!");
-    }
-});
 function check(inputs, input_id) {
     inputs.forEach(item => {
         if (item.id = input_id) {
@@ -70,10 +62,17 @@ tips.forEach(tip => {
         setTip(tip.value);
     });
 });
-console.log("tip:" + localStorage.getItem("tip"));
 custom.addEventListener('click', () => {
     tips.forEach(tip => {
         setTip(tip.value);
         removeColor(tip);
     });
+});
+form.addEventListener('keypress', (e) => {
+    if (e.key == "Enter") {
+        let tip = getTip();
+        total.textContent = String(total_per_person(parseInt(bill.value), parseInt(number_of_people.value), parseInt(tip)));
+        tip_amount.textContent = tip_per_person(parseInt(bill.value), parseInt(number_of_people.value), parseInt(tip));
+        console.log("The key is down!");
+    }
 });
