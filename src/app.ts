@@ -8,7 +8,7 @@ let custom = document.querySelector('#custom') as HTMLInputElement
 
 let total = document.querySelector('#total')
 let tip_amount = document.querySelector('#tip_amount')
-let reset = document.querySelector('#reset')
+let reset_button = document.querySelector('#reset')
 
 let alert_bill = document.querySelector('#alert_bill')
 let alert_tip = document.querySelector('#alert_tip')
@@ -31,7 +31,6 @@ function tip_per_person(bill_to_pay : number, number_of_people : number, tip_to_
 function total_per_person(bill : number, number_of_people : number, tip : number){
     let tip_to_pay = tip_per_person(bill, number_of_people, tip)
     let total_to_pay = (bill/number_of_people).toFixed(2)
-    console.log(tip_to_pay + total_to_pay)
     return (parseFloat(total_to_pay) + parseFloat(tip_to_pay)).toFixed(2)
 }
 
@@ -65,6 +64,55 @@ function removeColor(item : HTMLInputElement){
     parent.classList.add('bg-regal-blue')
 }
 
+function reset(){
+    total.textContent = '0.00'
+    tip_amount.textContent = '0.00'
+    bill.value = ''
+    number_of_people.value = ''
+    if (!alert_tip.classList.contains('hidden')){
+        alert_tip.classList.add('hidden')
+    }
+    if (!alert_bill.classList.contains('hidden')){
+        alert_bill.classList.add('hidden')
+    }
+    if (!alert_people_number.classList.contains('hidden')){
+        alert_people_number.classList.add('hidden')
+    }
+    localStorage.setItem('tip', '')
+    uncheckAll()
+}
+
+
+function checkForm(){
+    let tip = getTip()
+    if (number_of_people.value == ""){
+        alert_people_number.classList.remove('hidden')
+    }
+    else{
+        alert_people_number.classList.add('hidden')
+    }
+
+    if (bill.value == ""){
+        alert_bill.classList.remove('hidden')
+    }
+    else{
+        alert_bill.classList.add('hidden')
+    }
+
+    if (tip == ""){
+        alert_tip.classList.remove('hidden')
+    }
+    else{
+        alert_tip.classList.add('hidden')
+    }
+}
+
+function uncheckAll(){
+    tips.forEach(tip => {
+        removeColor(tip)
+        custom.value = ''
+    })
+}
 
 tips.forEach(tip => {
     tip.addEventListener('click', () => {
@@ -87,11 +135,20 @@ custom.addEventListener('click', () => {
 
 form.addEventListener('keypress', (e:KeyboardEvent) => {
     if(e.key == "Enter"){
+        checkForm()
         let tip = getTip()
         total.textContent = String(total_per_person(parseInt(bill.value), parseInt(number_of_people.value), parseInt(tip)))
         tip_amount.textContent = tip_per_person(parseInt(bill.value), parseInt(number_of_people.value), parseInt(tip))
-        console.log("The key is down!")
     }
 })
+
+
+reset_button.addEventListener('click', () => {
+    reset()
+})
+
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+    console.info( "This page is reloaded" );
+  }
 
 
