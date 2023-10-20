@@ -16,14 +16,23 @@ function getTip() {
     return localStorage.getItem('tip');
 }
 function tip_per_person(bill_to_pay, number_of_people, tip_to_pay) {
-    let total_tip = ((tip_to_pay / 100) * bill_to_pay);
+    let total_tip = (((tip_to_pay) / 100) * bill_to_pay);
     return (total_tip / number_of_people).toFixed(2);
 }
 function total_per_person(bill, number_of_people, tip) {
     let tip_to_pay = tip_per_person(bill, number_of_people, tip);
     let total_to_pay = (bill / number_of_people).toFixed(2);
-    return total_to_pay + tip_to_pay;
+    console.log(tip_to_pay + typeof total_to_pay);
+    return parseFloat(total_to_pay) + parseFloat(tip_to_pay);
 }
+form.addEventListener('keypress', (e) => {
+    if (e.key == "Enter") {
+        let tip = getTip();
+        total.textContent = String(total_per_person(parseInt(bill.value), parseInt(number_of_people.value), parseInt(tip)));
+        tip_amount.textContent = tip_per_person(parseInt(bill.value), parseInt(number_of_people.value), parseInt(tip));
+        console.log("The key is down!");
+    }
+});
 function check(inputs, input_id) {
     inputs.forEach(item => {
         if (item.id = input_id) {
@@ -58,7 +67,6 @@ tips.forEach(tip => {
             custom.value = '';
         });
         setColor(tip);
-        console.log(tip.value);
         setTip(tip.value);
     });
 });
@@ -68,11 +76,4 @@ custom.addEventListener('click', () => {
         setTip(tip.value);
         removeColor(tip);
     });
-});
-console.log("Yeahhh!");
-form.addEventListener('keypress', (e) => {
-    // e.preventDefault()
-    if (e.key == "Enter") {
-        console.log("The key is down!");
-    }
 });
