@@ -3,6 +3,7 @@ let bill = document.querySelector('#bill');
 let number_of_people = document.querySelector('#number_of_people');
 let tips = Array.from(document.querySelectorAll('input[type="radio"]'));
 let custom = document.querySelector('#custom');
+let tip = '';
 let total = document.querySelector('#total');
 let tip_amount = document.querySelector('#tip_amount');
 let reset_button = document.querySelector('#reset');
@@ -10,10 +11,10 @@ let alert_bill = document.querySelector('#alert_bill');
 let alert_tip = document.querySelector('#alert_tip');
 let alert_people_number = document.querySelector('#alert_people_number');
 function setTip(value) {
-    localStorage.setItem('tip', value);
+    tip = value;
 }
 function getTip() {
-    return localStorage.getItem('tip');
+    return tip;
 }
 function tip_per_person(bill_to_pay, number_of_people, tip_to_pay) {
     let total_tip = (((tip_to_pay) / 100) * bill_to_pay);
@@ -65,7 +66,7 @@ function reset() {
     if (!alert_people_number.classList.contains('hidden')) {
         alert_people_number.classList.add('hidden');
     }
-    localStorage.setItem('tip', '');
+    setTip('');
     uncheckAll();
 }
 function checkForm() {
@@ -82,7 +83,7 @@ function checkForm() {
     else {
         alert_bill.classList.add('hidden');
     }
-    if (tip == "") {
+    if (tip == '') {
         alert_tip.classList.remove('hidden');
     }
     else {
@@ -122,6 +123,3 @@ form.addEventListener('keypress', (e) => {
 reset_button.addEventListener('click', () => {
     reset();
 });
-if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-    console.info("This page is reloaded");
-}

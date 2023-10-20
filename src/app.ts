@@ -5,6 +5,7 @@ let number_of_people = <HTMLInputElement>document.querySelector('#number_of_peop
 
 let tips : Array<HTMLInputElement> = Array.from(document.querySelectorAll('input[type="radio"]'))
 let custom = document.querySelector('#custom') as HTMLInputElement
+let tip = ''
 
 let total = document.querySelector('#total')
 let tip_amount = document.querySelector('#tip_amount')
@@ -16,11 +17,11 @@ let alert_people_number = document.querySelector('#alert_people_number')
 
 
 function setTip(value : string){
-    localStorage.setItem('tip', value)
+    tip = value;
 }
 
 function getTip(){
-    return localStorage.getItem('tip')
+    return tip;
 }
 
 function tip_per_person(bill_to_pay : number, number_of_people : number, tip_to_pay : number){
@@ -78,7 +79,7 @@ function reset(){
     if (!alert_people_number.classList.contains('hidden')){
         alert_people_number.classList.add('hidden')
     }
-    localStorage.setItem('tip', '')
+    setTip('')
     uncheckAll()
 }
 
@@ -99,7 +100,7 @@ function checkForm(){
         alert_bill.classList.add('hidden')
     }
 
-    if (tip == ""){
+    if (tip == ''){
         alert_tip.classList.remove('hidden')
     }
     else{
@@ -146,9 +147,5 @@ form.addEventListener('keypress', (e:KeyboardEvent) => {
 reset_button.addEventListener('click', () => {
     reset()
 })
-
-if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-    console.info( "This page is reloaded" );
-  }
 
 
